@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><strong>Name:</strong>
+    <%= @portfolio.name %></h5>
+    <p class="card-text">
+    <p>
+    <strong>Buy date:</strong>
+    <%= @portfolio.buy_date %>
+    </p>
+    <p>
+    <strong>Amount:</strong>
+    <%= @portfolio.amount %>
+    </p>
+    <p>
+   <strong>Buy price:</strong>
+    <%= @portfolio.buy_price %>
+    </p>
+    <p>
+    <strong>Note:</strong>
+    <%= @portfolio.note %>
+    </p>
+    </p>
+    <%= link_to 'Edit', edit_portfolio_path(@portfolio), class:"btn btn-warning" %>
+    <%= link_to 'Back', portfolios_path, class:"btn btn-warning" %>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+ 
+

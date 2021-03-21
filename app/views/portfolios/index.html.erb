@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Portfolios</h1>
+
+<table>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Buy date</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Buy price</th>
+      <th scope="col">Note</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @portfolios.each do |portfolio| %>
+    <tr>
+      <td><%= portfolio.name %></td>
+      <td><%= portfolio.buy_date %></td>
+      <td><%= portfolio.amount %></td>
+      <td><%= portfolio.buy_price %></td>
+      <td><%= portfolio.note %></td>
+      <td><%= link_to 'Show', portfolio %>
+      <%= link_to 'Edit', edit_portfolio_path(portfolio) %>
+      <%= link_to 'Delete', portfolio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add New Portfolio', new_portfolio_path, class:"btn btn-warning" %>
