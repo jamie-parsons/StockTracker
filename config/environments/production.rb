@@ -117,4 +117,7 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+
+  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 } ##TODO DEVISE CONFIG change for production: 'localhost' needs to be changed to heroku or whatever, port? unsure if needs changing
+
 end
