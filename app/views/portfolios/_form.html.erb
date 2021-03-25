@@ -11,32 +11,30 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="mb-3">
+    <%= form.text_field :name, class:"field form-control", placeholder:"Name" %>
   </div>
 
-  <div class="field">
-    <%= form.label :buy_date %>
-    <%= form.date_select :buy_date %>
+  <div class="mb-3">
+    <%= form.text_field :amount, class:"field form-control", placeholder:"Amount" %>
   </div>
 
-  <div class="field">
-    <%= form.label :amount %>
-    <%= form.text_field :amount %>
+  <div class="mb-3">
+    <%= form.text_field :buy_price, class:"field form-control", placeholder:"Buy Price" %>
   </div>
 
-  <div class="field">
-    <%= form.label :buy_price %>
-    <%= form.text_field :buy_price %>
+  <div class="mb-3">
+    <%= form.text_field :note, class:"field form-control", placeholder:"Notes" %>
   </div>
 
-  <div class="field">
-    <%= form.label :note %>
-    <%= form.text_area :note %>
+  <div class="mb-3">
+    <%= form.date_select :buy_date, class:"dropdown-menu" %>
   </div>
-
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-warning"%>
+    <%= link_to 'Cancel', portfolios_path, class:"btn btn-warning" %>
+
   </div>
+  </div>
+
 <% end %>
