@@ -1,27 +1,33 @@
-<h2>Sign in</h2>
+<div class="card" style="width: 25rem;">
+
+  <div class="card-header" >
+    <h2>Sign in</h2>
+  </div>
+
+  <div class="card-body">
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="mb-3">
+      <%= f.email_field :email, class:"field form-control", autofocus: true, autocomplete: "email", placeholder:"Email" %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.password_field :password, class:"field form-control", autocomplete: "current-password", placeholder:"Password " %>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+      <div class="form-check">
+        <%= f.check_box :remember_me, class:"form-check-input", type:"checkbox", value:"", id:"flexCheckDefault" %>
+        <%= f.label :remember_me, class:"form-check-label", for:"flexCheckDefault" %>
+      </div>
+    <% end %>
+    
+
+    <div class="actions">
+      <%= f.submit "Submit", class:"btn btn-warning" %>
+    </div>
+    <% end %>
+    </div>
 </br>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="mb-3">
-    <%= f.email_field :email, class:"field form-control", autofocus: true, autocomplete: "email", placeholder:"Email" %>
-  </div>
-
-  <div class="mb-3">
-    <%= f.password_field :password, class:"field form-control", autocomplete: "current-password", placeholder:"Password " %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-  <div class="form-check">
-      <%= f.check_box :remember_me, class:"form-check-input", type:"checkbox", value:"", id:"flexCheckDefault" %>
-      <%= f.label :remember_me, class:"form-check-label", for:"flexCheckDefault" %>
-  </div>
-  <% end %>
-  </br>
-
-  <div class="actions">
-    <%= f.submit "Submit", class:"btn btn-warning" %>
-  </div>
-<% end %>
-</br>
-
+</div>
 <%= render "devise/shared/links" %>
