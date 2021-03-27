@@ -34,7 +34,10 @@
   </div>
 
   <div class="mb-3">
-  <% form.number_field :user_id, id: :portfolio_user_id, class:"field form-control", value:current_user.id %>
+    <%= form.number_field :user_id, id: :portfolio_user_id, class:"field form-control", value:current_user.id, type: :hidden %> 
+      
+      <!-- COMMENT is there a difference between type hidden and just not echoing out? --!>
+
   </div>
 
   <div class="actions">
