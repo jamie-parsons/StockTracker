@@ -1,15 +1,17 @@
 <%= form_with(model: portfolio) do |form| %>
-  <% if portfolio.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(portfolio.errors.count, "error") %> prohibited this portfolio from being saved:</h2>
+    <% if portfolio.errors.any? %>
+      <div id="error_explanation">
+        <h4><%= pluralize(portfolio.errors.count, "error") %> prohibited this portfolio from being saved:</h4>
 
-      <ul>
-        <% portfolio.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+        <ul>
+          <% portfolio.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+  <div class="card-body">
 
   <div class="mb-3">
     <%= form.text_field :name, class:"field form-control", placeholder:"Name" %>
@@ -30,10 +32,14 @@
   <div class="mb-3">
     <%= form.date_select :buy_date, class:"dropdown-menu" %>
   </div>
+
+  <div class="mb-3">
+  <% form.number_field :user_id, id: :portfolio_user_id, class:"field form-control", value:current_user.id %>
+  </div>
+
   <div class="actions">
     <%= form.submit class:"btn btn-warning"%>
     <%= link_to 'Cancel', portfolios_path, class:"btn btn-warning" %>
-
   </div>
   </div>
 
