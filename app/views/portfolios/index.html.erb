@@ -10,6 +10,7 @@
       <th scope="col">Amount</th>
       <th scope="col">Buy price</th>
       <th scope="col">Note</th>
+      <th scope="col">User</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -21,6 +22,7 @@
       <td><%= portfolio.amount %></td>
       <td><%= portfolio.buy_price %></td>
       <td><%= portfolio.note %></td>
+      <td><%= portfolio.user_id %></td>
       <td>
       <%= link_to 'Show', portfolio, class:"btn btn-warning" %>
       <%= link_to 'Edit', edit_portfolio_path(portfolio), class:"btn btn-warning" %>

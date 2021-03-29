@@ -1,5 +1,6 @@
 class PortfoliosController < ApplicationController
   before_action :set_portfolio, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: [:index, :show]  #if a user is not authenticated, then only let them see index page and show page 
 
   # GET /portfolios or /portfolios.json
   def index
