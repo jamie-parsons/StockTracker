@@ -9,7 +9,7 @@
       <p class="card-text">
       <p>
       <strong>Buy date:</strong>
-      <%= @portfolio.buy_date %>
+      <%= @portfolio.buy_date.strftime('%m/%d/%Y') %>
       </p>
       <p>
       <strong>Amount:</strong>
@@ -17,7 +17,7 @@
       </p>
       <p>
       <strong>Buy price:</strong>
-      <%= @portfolio.buy_price %>
+      $<%= @portfolio.buy_price %>
       </p>
       <p>
       <strong>Note:</strong>
@@ -27,7 +27,7 @@
 
       <%= link_to 'Edit', edit_portfolio_path(@portfolio), class:"btn btn-warning" %>
       <%= link_to 'Show All', portfolios_path, class:"btn btn-warning" %>
-      <%= link_to 'Delete', portfolio_path(@portfolio), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-warning" %>
+      <%= link_to 'Delete', portfolio_path(@portfolio), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
   </div>
 
 </div>

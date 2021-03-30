@@ -22,16 +22,16 @@
       <% if portfolio.user == current_user %> <!-- TODO fix so not visible by manually entering portfolio route --!>
 
       <tr>
-        <td><%= portfolio.name %></td>
-        <td><%= portfolio.buy_date %></td>
+        <td><%= link_to portfolio.name, portfolio, class:"btn btn-warning" %></td>
+        <td><%= portfolio.buy_date.strftime('%m/%d/%Y')%></td>
         <td><%= portfolio.amount %></td>
-        <td><%= portfolio.buy_price %></td>
+        <td>$<%= portfolio.buy_price %></td>
         <td><%= portfolio.note %></td>
         <td><%= portfolio.user_id %></td>
         <td>
         <%= link_to 'Show', portfolio, class:"btn btn-warning" %>
         <%= link_to 'Edit', edit_portfolio_path(portfolio), class:"btn btn-warning" %>
-        <%= link_to 'Delete', portfolio, class:"btn btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Delete', portfolio, class:"btn btn-outline-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
       <% end %>
