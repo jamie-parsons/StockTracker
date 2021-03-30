@@ -1,38 +1,45 @@
-<h1>Portfolios</h1>
 
-<table>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Buy date</th>
-      <th scope="col">Amount</th>
-      <th scope="col">Buy price</th>
-      <th scope="col">Note</th>
-      <th scope="col">User</th>
-      <th scope="col">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @portfolios.each do |portfolio| %>
-    <tr>
-      <td><%= portfolio.name %></td>
-      <td><%= portfolio.buy_date %></td>
-      <td><%= portfolio.amount %></td>
-      <td><%= portfolio.buy_price %></td>
-      <td><%= portfolio.note %></td>
-      <td><%= portfolio.user_id %></td>
-      <td>
-      <%= link_to 'Show', portfolio, class:"btn btn-warning" %>
-      <%= link_to 'Edit', edit_portfolio_path(portfolio), class:"btn btn-warning" %>
-      <%= link_to 'Delete', portfolio, class:"btn btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %>
-      </td>
-    </tr>
-  <% end %>
-</tbody>
-</table>
+  <h1>Portfolios</h1>
 
-<br>
+  <table>
 
-<%= link_to 'Add New Portfolio', new_portfolio_path, class:"btn btn-warning" %>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Buy date</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Buy price</th>
+        <th scope="col">Note</th>
+        <th scope="col">User</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @portfolios.each do |portfolio| %>
+
+      <% if portfolio.user == current_user %> <!-- TODO fix so not visible by manually entering portfolio route --!>
+
+      <tr>
+        <td><%= portfolio.name %></td>
+        <td><%= portfolio.buy_date %></td>
+        <td><%= portfolio.amount %></td>
+        <td><%= portfolio.buy_price %></td>
+        <td><%= portfolio.note %></td>
+        <td><%= portfolio.user_id %></td>
+        <td>
+        <%= link_to 'Show', portfolio, class:"btn btn-warning" %>
+        <%= link_to 'Edit', edit_portfolio_path(portfolio), class:"btn btn-warning" %>
+        <%= link_to 'Delete', portfolio, class:"btn btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'Add New Portfolio', new_portfolio_path, class:"btn btn-warning" %>
+

@@ -1,7 +1,7 @@
 class PortfoliosController < ApplicationController
   before_action :set_portfolio, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: [:index, :show]  #if a user is not authenticated, then only let them see index page and show page 
-  before_action :correct_user, only: [:edit, :update, :destroy] #for these pages, check that it is correct user
+  before_action :correct_user, only: [:edit, :show, :update, :destroy] #for these pages, check that it is correct user
 
 
   # GET /portfolios or /portfolios.json
@@ -27,7 +27,7 @@ class PortfoliosController < ApplicationController
   # POST /portfolios or /portfolios.json
   def create
     #@portfolio = Portfolio.new(portfolio_params)
-    @portfolio = current_user.portfolios.build(portfolio_params)
+    @portfolio = current_user.portfolios.build(portfolio)
 
 
 
@@ -66,7 +66,7 @@ class PortfoliosController < ApplicationController
 
   def correct_user
     @portfolio = current_user.portfolios.find_by(id: params[:id])
-    redirect_to portfolios_path, notice: "Not authorized to edit here" if @portfolio.nil? #2 58
+    redirect_to portfolios_path, notice: "Oops! Here are your holdings" if @portfolio.nil? #2 58
   end
 
 
