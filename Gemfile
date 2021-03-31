@@ -18,6 +18,10 @@ gem 'jbuilder', '~> 2.7'
 
 gem 'devise', '~> 4.7', '>= 4.7.3'
 
+gem 'stock_quote', '~> 3.0'
+
+gem 'dotenv', '~> 2.7', '>= 2.7.6'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
