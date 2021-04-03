@@ -7,6 +7,8 @@ class PortfoliosController < ApplicationController
   # GET /portfolios or /portfolios.json
   def index
     @portfolios = Portfolio.all
+    @iex = ENV['IEX_API'] #referencing IEX API as of stock_quote gem 3.0
+
   end
 
   # GET /portfolios/1 or /portfolios/1.json
@@ -27,7 +29,7 @@ class PortfoliosController < ApplicationController
   # POST /portfolios or /portfolios.json
   def create
     #@portfolio = Portfolio.new(portfolio_params)
-    @portfolio = current_user.portfolios.build(portfolio)
+    @portfolio = current_user.portfolios.build(portfolio_params)
 
 
 

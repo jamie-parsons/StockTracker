@@ -65,6 +65,9 @@ config/master.key
 .env
 .env.*
 
+# just notes during development
+.notes 
+
 ## Environment normalization:
 /.bundle
 /vendor/bundle

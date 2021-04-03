@@ -13,6 +13,7 @@
         <th scope="col">Buy price</th>
         <th scope="col">Note</th>
         <th scope="col">User</th>
+        <th scope="col">Current PPS</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
@@ -28,8 +29,12 @@
         <td>$<%= portfolio.buy_price %></td>
         <td><%= portfolio.note %></td>
         <td><%= portfolio.user_id %></td>
+        <td><% StockQuote::Stock.new(api_key: @iex) %>
+            <% stock = StockQuote::Stock.quote("#{portfolio.name}") %>
+            $<%= stock.latest_price %></td> <!--maybe find way to put this logic in controller --!>
         <td>
     
+       
 
         <%= link_to 'Show', portfolio, class:"btn btn-warning" %>
         <%= link_to 'Edit', edit_portfolio_path(portfolio), class:"btn btn-warning" %>
@@ -45,3 +50,4 @@
 
   <%= link_to 'Add New Portfolio', new_portfolio_path, class:"btn btn-warning" %>
 
+ 

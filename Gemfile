@@ -1,9 +1,13 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+
+
 ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
+gem 'dotenv-rails', groups: [:development, :test] #amazing what following the directions will do to get things to work properly :/ Moved here and ran bundle, works fine now
+
 gem 'rails', '~> 6.1.3'
 gem 'sqlite3', '~> 1.4'
 gem 'puma', '~> 5.0'
@@ -20,7 +24,7 @@ gem 'devise', '~> 4.7', '>= 4.7.3'
 
 gem 'stock_quote', '~> 3.0'
 
-gem 'dotenv', '~> 2.7', '>= 2.7.6'
+#gem 'dotenv', '~> 2.7', '>= 2.7.6' #does not work if put here, moved to top of gemfile as per gem README.
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
