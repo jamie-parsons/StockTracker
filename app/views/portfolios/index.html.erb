@@ -1,7 +1,6 @@
-
-
-  <h1>Portfolios</h1>
-
+<div class="card-header" style="">
+<h1>Portfolio Index</h1>
+</div>
   <table>
 
   <table class="table table-hover">
@@ -30,7 +29,7 @@
         <td><%= portfolio.note %></td>
         <td><%= portfolio.user_id %></td>
         <td><% StockQuote::Stock.new(api_key: @iex) %>
-            <% stock = StockQuote::Stock.quote("#{portfolio.name}") %>
+            <% stock = StockQuote::Stock.quote("#{portfolio.name}") %> <!-- if name not found produces error -->
             $<%= stock.latest_price %></td> <!--maybe find way to put this logic in controller --!>
         <td>
     
