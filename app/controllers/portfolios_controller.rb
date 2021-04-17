@@ -8,18 +8,13 @@ class PortfoliosController < ApplicationController
   def index
     @portfolios = Portfolio.all
     @iex = StockQuote::Stock.new(api_key: ENV['IEX_API'])
-    #@stock = StockQuote::Stock.quote([:name])
 
-    #"print #{@stock}"
-   
    
    # @iex = ENV['IEX_API'] #referencing IEX API as of stock_quote gem 3.0
    # @stock = StockQuote::Stock.quote("#{portfolio.name}")
+   # try activerecord find_by to get active stock #41 controller correct user OR 42 correct user new form
   end
 
-  def Stocking
-    "Hi I have an #{@stock}" 
-  end
 
   # GET /portfolios/1 or /portfolios/1.json
   def show
