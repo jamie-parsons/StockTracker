@@ -1,3 +1,11 @@
+<div class="card-body"
+  <%= form_tag portfolios_path, :method => 'POST' do %>
+    <%= text_field_tag 'ticker', nil, placeholder:"Stock Symbol" %>
+    <%= submit_tag 'Lookup', class:"btn btn-warning"%>
+  <% end %>
+<!-- <%= "#{}" %> -->
+</div>
+
 <div class="card-header" style="">
 <h1>Portfolio Index</h1>
 </div>
@@ -28,9 +36,12 @@
         <td>$<%= portfolio.buy_price %></td>
         <td><%= portfolio.note %></td>
         <td><%= portfolio.user_id %></td>
-        <td><% StockQuote::Stock.new(api_key: @iex) %>
+        <td><% @iex %>
+
             <% stock = StockQuote::Stock.quote("#{portfolio.name}") %> <!-- if name not found produces error -->
-            $<%= stock.latest_price %></td> <!--maybe find way to put this logic in controller --!>
+            $<%= stock.latest_price %></td>
+               <!-- <% @stock %> -->
+               <!-- $<%= @stock.inspect %></td> maybe find way to put this logic in controller -->
         <td>
     
        

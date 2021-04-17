@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   #root 'portfolios#index'
   get 'home/about'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  #post '/' => 'portfolios' #for stock search form on index page
 end

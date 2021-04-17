@@ -7,8 +7,18 @@ class PortfoliosController < ApplicationController
   # GET /portfolios or /portfolios.json
   def index
     @portfolios = Portfolio.all
-    @iex = ENV['IEX_API'] #referencing IEX API as of stock_quote gem 3.0
+    @iex = StockQuote::Stock.new(api_key: ENV['IEX_API'])
+    #@stock = StockQuote::Stock.quote([:name])
 
+    #"print #{@stock}"
+   
+   
+   # @iex = ENV['IEX_API'] #referencing IEX API as of stock_quote gem 3.0
+   # @stock = StockQuote::Stock.quote("#{portfolio.name}")
+  end
+
+  def Stocking
+    "Hi I have an #{@stock}" 
   end
 
   # GET /portfolios/1 or /portfolios/1.json
