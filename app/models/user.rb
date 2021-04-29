@@ -8,76 +8,39 @@ class User < ApplicationRecord
 
 end
 
-# class User < ApplicationRecord
-#   # Include default devise modules. Others available are:
-#   # :confirmable, :lockable, :timeoutable and :omniauthable
-#   devise :database_authenticatable, :registerable,
-#          :recoverable, :rememberable, :trackable, :validatable
-#   has_many :user_stocks
-#   has_many :stocks, through: :user_stocks
-#   has_many :friendships
-#   has_many :friends, through: :friendships
+# class MonthlyBudgetsController < ApplicationController
+#   skip_before_action :authorized
 
-#    scope :except_current_user,-> (user_id){
-#     select("*")
-#       .from("users")
-#       .where("id!=?", user_id)
-#       .order("id")
-#   }
-
-#   def full_name
-#     return "#{first_name} #{last_name}".strip if (first_name || last_name)
-#     "Anonymous"
+#   def index
+#     monthly_budgets = MonthlyBudget.all
+#     sorted_months = monthly_budgets.sort_by { |obj| obj.created_at }
+#     render json: sorted_months
 #   end
 
-#   def can_add_stock?(ticker_symbol)
-#   	under_stock_limit? && !stock_already_added?(ticker_symbol)
-
+#   def user_months
+#     user = User.find_by(id: params[:id])
+#     months = MonthlyBudget.where(user_id: user.id)
+#     render json: months
 #   end
 
-#   def under_stock_limit?
-#   	(user_stocks.count < 10)
+#   def create
+#     budget =
+#       MonthlyBudget.create(
+#         name: params[:month_name],
+#         year: params[:year],
+#         monthly_budget: params[:monthly_income],
+#         user_id: params[:user_id]
+#       )
+#     render json: budget
 #   end
 
-#   def stock_already_added?(ticker_symbol)
-#   	stock = Stock.find_by_ticker(ticker_symbol)
-#   	return false unless stock
-#   	user_stocks.where(stock_id: stock.id).exists?
+#   def editBudget
+#     month = MonthlyBudget.find_by(id: params[:month_id])
 #   end
 
-#   def not_friends_with?(friend_id)
-#     friendships.where(friend_id: friend_id).count < 1
+#   def editMonthlyIncome
+#     month = MonthlyBudget.find_by(id: params[:month_id])
+#     month.update(monthly_budget: params[:monthly_income])
+#     render json: month
 #   end
-
-#   # def except_current_user(users)
-#   #   # users.reject { |user| user.id = self.id }
-#   #   users.each do |user|
-#   #     puts "#{user.id} : #{self.id}"
-#   #   end
-#   # end
-
-#   def self.search(param)
-#     return User.none if param.blank?
-#     param.strip!
-#     param.downcase!
-#     (first_name_matches(param) + last_name_matches(param) + email_matches(param)).uniq
-#     # return email_matches(param)
-#   end
-
-#   def self.first_name_matches(param)
-#     matches('first_name', param)
-#   end
-
-#   def self.last_name_matches(param)
-#     matches('last_name', param)
-#   end
-
-#   def self.email_matches(param)
-#     matches('email', param)
-#   end
-
-#   def self.matches(field_name, param)
-#     where("#{field_name} ilike ?", "%#{param}%")
-#   end
-
 # end
