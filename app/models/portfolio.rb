@@ -8,4 +8,10 @@ class Portfolio < ApplicationRecord
     # may need to add new associations #271
 
 
+#test logic    
+     def pps
+        3
+     end
 end
+
+#module

@@ -41,7 +41,7 @@
             <% stock = StockQuote::Stock.quote("#{portfolio.name}") %> <!-- if name not found produces error -->
             $<%= number_with_precision(stock.latest_price, :precision => 2, :delimiter => ",") %></td>
                <!-- <% @stock %> -->
-               <!-- $<%= @stock.inspect %></td> maybe find way to put this logic in controller -->
+               <!-- $<%= @stock.inspect %></td> -->
         <td>
     
        

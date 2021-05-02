@@ -7,6 +7,8 @@ class PortfoliosController < ApplicationController
   # GET /portfolios or /portfolios.json
   def index
     @portfolios = Portfolio.all
+binding.pry
+
     @iex = StockQuote::Stock.new(api_key: ENV['IEX_API'])
 
    
