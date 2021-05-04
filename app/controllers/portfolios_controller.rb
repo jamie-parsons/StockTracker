@@ -7,7 +7,10 @@ class PortfoliosController < ApplicationController
   # GET /portfolios or /portfolios.json
   def index
     @portfolios = Portfolio.all
-binding.pry
+    
+# binding.pry TEST for what is being sent through
+# check value in terminal
+#added to gemfile
 
     @iex = StockQuote::Stock.new(api_key: ENV['IEX_API'])
 

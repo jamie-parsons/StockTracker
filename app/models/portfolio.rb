@@ -10,8 +10,12 @@ class Portfolio < ApplicationRecord
 
 #test logic    
      def pps
-        3
+        stock = StockQuote::Stock.quote("#{portfolio.name}")
+        number_with_precision(stock.latest_price, :precision => 2, :delimiter => ",")
      end
 end
 
 #module
+
+#try putting here first. Can try breaking out into separate module later
+#logic to be called to calculate profit/loss
