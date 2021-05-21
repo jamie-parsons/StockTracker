@@ -1,4 +1,4 @@
-#possible to put logic here 
+#
 # 
 const canvas = document.getElementById('canvas1');
 
@@ -69,7 +69,6 @@ class Particle{
         let dy = this.y - this.baseY;
         this.y -= dy/5;
       }
-      /*this.draw.fillStyle = "#0000ff";*/
 
     } 
   }
@@ -86,13 +85,6 @@ function init() {
       }
     }
   }
-  /*for (let i = 0; i < 1000; i++){
-   let x = Math.random() * canvas.width;
-   let y = Math.random() * canvas.height;
-  particleArray.push(new Particle(x, y)); 
-  } */ /*remove block because it creates random distro of particles over entire canvas */
-  //particleArray.push(new Particle(50, 50));
-  //particleArray.push(new Particle(80, 50));
 }
 
 init();
