@@ -1,24 +1,10 @@
-# README
+# StockTracker personal financial tracker 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* CURRENT BUG: gem conflicts with update, rails/dependencies 
 
-Things you may want to cover:
+StockTracker is built with Ruby on Rails and utilizes Devise for account creation and management, the IEX stock API for current financials, and front-end libraries for design. Scaffolding and back end databases: Rails/ActiveRecord/SQL.
 
-* Ruby version
+Pending:
+* TODO: add persistent data management with dynamic updating for user accounts and portfolios
+* TODO: add visual trackers/graphs
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
