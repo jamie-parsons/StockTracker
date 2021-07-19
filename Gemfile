@@ -3,8 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 
 
-ruby '2.6.3'
-
+# ruby '2.6.3'
+ruby '3.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'dotenv-rails', groups: [:development, :test] #amazing what following the directions will do to get things to work properly :/ Moved here and ran bundle, works fine now
 
@@ -31,8 +31,8 @@ gem 'stock_quote', '~> 3.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
-
-gem 'racc', '>= 1.5.2', require: false
+gem 'rake', '>= 13.0.6'
+gem 'racc', '>= 1.5.2'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
